@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-207520689-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-207520689-1');
+</script>
+    <style>
+         body {margin:0;}
+        
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: orange;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          border-radius: 5px;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: white;
+          color: black;
+        }
+        
+        .active {
+          background-color: black;
+        }
+        ul {
+         position: -webkit-sticky; /* Safari */
+          position: sticky;
+         top: 0;
+        }
+        .br {
+            display: block;
+            margin-bottom: 1.5em;
+        }
+         body{
+            background-color: grey;
+        }
+        header{
+            background-color: orange;
+        }
+        .button1 {
+        background-color: orange;
+        border: none;
+        color: black;
+        padding: 15px 60px;
+        border-radius: 5px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; 
+        transition-duration: 0.4s;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+.form__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+  color: black;
+}
+
+.form__input {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 1.2rem;
+	margin-top: 20px;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  background-color: orange;
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+  
+}
+
+    </style>
+</head>
+<header>
+    <center><h1 style="margin : 0; margin-bottom:0; font-size:80px;">Akaboys</h1></center>
+        <ul>
+            <li><a href="/index.html">Akaboys</a></li>
+            <li><a href="/Nyheter.html">Nyheter</a></li>
+            <li><a href="/Omoss.html">Om oss</a></li>
+            <li><a href="/Vareansatte.html">Våre ansatte</a></li>
+            <li><a class="active" href="\InvestorKalkulator.html">Investor Kalkulator</a></li>
+            <li style="float:right"><a href="/Kontaktoss.html">Kontakt oss</a></li>
+          </ul>
+</header>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form id="frm1" action="Calculate.html">
+        <center><input type="button" class="button1" onclick="Calculate()" value="Klikk for å kalkulere"></center>
+            <div class="form__group">
+                <input type="number" class="form__input" id="Beløp" placeholder="Skriv her: Antall kr du vil investere i fondet vårt" required="" />
+                <label for="Number" class="form__label"></label>
+             </div>
+            <div class="form__group">
+                <input type="number" class="form__input" id="År" placeholder="Skriv her: Hvor mange år vil du invevestere i fondet vårt?" required="" />
+                <label for="Number" class="form__label"></label>
+             </div>
+             <h1 id="test" class="form__input">
+                Kr du får igjen etter X år:
+               </h1>
+        
+    </form>
+<script>
+    function Calculate() {
+    var Beløp = document.getElementById("Beløp").value;
+     var X = document.getElementById("År").value;
+     var Årlig = Math.pow(1.8, X);
+    var Totalt = Beløp * Årlig;
+
+        document.getElementById("test").innerHTML = Totalt;
+    }
+</script>
+</body>
+</html>
